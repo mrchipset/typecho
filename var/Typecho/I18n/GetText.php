@@ -115,6 +115,10 @@ class GetText
         $this->loadTables();
 
         if ($this->enable_cache) {
+            if (empty($string)) {
+                return "";
+            }
+
             // Caching enabled, get translated string from cache
             if (array_key_exists($string, $this->cache_translations)) {
                 return $this->cache_translations[$string];
